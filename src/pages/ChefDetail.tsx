@@ -144,23 +144,23 @@ export default function ChefDetail() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+      <header className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link to="/" className="flex items-center mr-4">
+              <Link to="/" className="flex items-center mr-4 text-purple-600 hover:text-purple-700 transition-colors">
                 <ArrowLeft className="h-5 w-5 mr-2" />
-                <span>Back</span>
+                <span className="font-medium">Back</span>
               </Link>
-              <ChefHat className="h-8 w-8 text-primary mr-2" />
-              <h1 className="text-2xl font-serif font-bold text-primary">MonCuisinierPrivé</h1>
+              <ChefHat className="h-8 w-8 text-purple-600 mr-2" />
+              <h1 className="text-2xl font-serif font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">MonCuisinierPrivé</h1>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700 hover:bg-red-50">
                 <Heart className="h-4 w-4 mr-2" />
                 Save
               </Button>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <Share2 className="h-4 w-4 mr-2" />
                 Share
               </Button>

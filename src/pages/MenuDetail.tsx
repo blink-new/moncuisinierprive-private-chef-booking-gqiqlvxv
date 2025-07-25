@@ -128,23 +128,23 @@ export default function MenuDetail() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+      <header className="bg-gradient-to-r from-orange-50 to-yellow-50 border-b border-orange-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link to="/" className="flex items-center mr-4">
+              <Link to="/" className="flex items-center mr-4 text-orange-600 hover:text-orange-700 transition-colors">
                 <ArrowLeft className="h-5 w-5 mr-2" />
-                <span>Back</span>
+                <span className="font-medium">Back</span>
               </Link>
-              <ChefHat className="h-8 w-8 text-primary mr-2" />
-              <h1 className="text-2xl font-serif font-bold text-primary">MonCuisinierPrivé</h1>
+              <ChefHat className="h-8 w-8 text-orange-600 mr-2" />
+              <h1 className="text-2xl font-serif font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">MonCuisinierPrivé</h1>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700 hover:bg-red-50">
                 <Heart className="h-4 w-4 mr-2" />
                 Save
               </Button>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50">
                 <Share2 className="h-4 w-4 mr-2" />
                 Share
               </Button>
@@ -207,8 +207,15 @@ export default function MenuDetail() {
               </div>
 
               <div className="flex flex-wrap gap-2 mb-6">
-                {menu.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
+                {menu.tags.map((tag, index) => (
+                  <Badge 
+                    key={tag} 
+                    className={`${
+                      index === 0 ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' :
+                      index === 1 ? 'bg-gradient-to-r from-green-500 to-teal-500 text-white' :
+                      'bg-gradient-to-r from-orange-500 to-red-500 text-white'
+                    } hover:scale-105 transition-transform`}
+                  >
                     {tag}
                   </Badge>
                 ))}
@@ -218,25 +225,32 @@ export default function MenuDetail() {
             </div>
 
             {/* Chef Info */}
-            <Card className="mb-8">
+            <Card className="mb-8 bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <img
-                    src={menu.chef.image}
-                    alt={menu.chef.name}
-                    className="w-16 h-16 rounded-full object-cover mr-4"
-                  />
+                  <div className="relative">
+                    <img
+                      src={menu.chef.image}
+                      alt={menu.chef.name}
+                      className="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-purple-200"
+                    />
+                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center">
+                      <span className="text-xs">👨‍🍳</span>
+                    </div>
+                  </div>
                   <div>
-                    <h3 className="text-xl font-semibold">{menu.chef.name}</h3>
+                    <h3 className="text-xl font-semibold text-purple-800">{menu.chef.name}</h3>
                     <div className="flex items-center">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400 mr-1" />
-                      <span className="font-medium">{menu.chef.rating}</span>
-                      <span className="text-gray-500 ml-1">({menu.chef.reviews} reviews)</span>
+                      <span className="font-medium text-purple-700">{menu.chef.rating}</span>
+                      <span className="text-purple-600 ml-1">({menu.chef.reviews} reviews)</span>
                     </div>
                   </div>
                   <div className="ml-auto">
                     <Link to={`/chef/${menu.chef.id}`}>
-                      <Button variant="outline">View Profile</Button>
+                      <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+                        View Profile
+                      </Button>
                     </Link>
                   </div>
                 </div>
@@ -322,16 +336,16 @@ export default function MenuDetail() {
 
           {/* Booking Sidebar */}
           <div className="lg:col-span-1">
-            <Card className="sticky top-24">
+            <Card className="sticky top-24 bg-gradient-to-br from-green-50 to-blue-50 border-green-200 shadow-lg">
               <CardContent className="p-6">
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-3xl font-bold text-primary">€{menu.price}</span>
-                    <span className="text-gray-600">per person</span>
+                    <span className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">€{menu.price}</span>
+                    <span className="text-green-700 font-medium">per person</span>
                   </div>
-                  <div className="flex items-center text-sm text-gray-500">
+                  <div className="flex items-center text-sm text-green-600">
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400 mr-1" />
-                    <span>{menu.rating} ({menu.reviews} reviews)</span>
+                    <span className="font-medium">{menu.rating} ({menu.reviews} reviews)</span>
                   </div>
                 </div>
 
@@ -402,12 +416,12 @@ export default function MenuDetail() {
                   </div>
                 </div>
 
-                <Button className="w-full mb-4" size="lg">
-                  Book Now
+                <Button className="w-full mb-4 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white shadow-lg hover:shadow-xl transition-all" size="lg">
+                  🍽️ Book Now
                 </Button>
 
-                <Button variant="outline" className="w-full">
-                  Contact Chef
+                <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+                  💬 Contact Chef
                 </Button>
 
                 <p className="text-xs text-gray-500 text-center mt-4">

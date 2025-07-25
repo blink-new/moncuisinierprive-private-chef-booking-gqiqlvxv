@@ -28,8 +28,17 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
-  ;
+    --radius: 0.5rem;
+    
+    /* Additional vibrant colors */
+    --vibrant-green: 142 76% 36%;
+    --vibrant-orange: 25 95% 53%;
+    --vibrant-blue: 217 91% 60%;
+    --vibrant-purple: 262 83% 58%;
+    --vibrant-pink: 330 81% 60%;
+    --vibrant-yellow: 48 96% 53%;
+    --vibrant-red: 0 84% 60%;
+    --vibrant-indigo: 239 84% 67%;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
